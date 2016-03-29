@@ -2,7 +2,7 @@
 
 Building configuration forms
 
-This contains a module <strong>suchi1</strong> which when enables creates 2 pages:
+This contains a module <strong>suchi1</strong> which when enabled creates 2 pages:
 
 <ol>
 <li>
