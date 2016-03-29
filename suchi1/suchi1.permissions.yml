@@ -1,0 +1,3 @@
+administer config values:
+  title: 'Administer Config Values defined in Suchi1'
+  description: 'Allow to access the config page'

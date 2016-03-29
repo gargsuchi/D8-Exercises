@@ -1,0 +1,15 @@
+suchi1.config_page:
+  path: '/suchi1/config'
+  defaults:
+    _form: '\Drupal\suchi1\Form\Suchi1Form'
+    _title: 'Config Forms Exercise'
+  requirements:
+    _permission: 'administer config values'
+
+suchi1.show_values_page:
+  path: '/suchi1/show'
+  defaults:
+    _controller: '\Drupal\suchi1\Controller\Suchi1PageController::show_values_page'
+    _title: 'Config Forms Show Values'
+  requirements:
+    _permission: 'access content'
