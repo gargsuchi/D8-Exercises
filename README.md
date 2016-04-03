@@ -1,16 +1,13 @@
 # D8-Exercises
 
-Building configuration forms
-
-This contains a module <strong>suchi1</strong> which when enabled creates 2 pages:
+Migrations from DB tables.
+This contains a module <strong>suchi_migrate</strong> which when enabled creates 2 migrations:
 
 <ol>
 <li>
-/suchi1/config - This page contains the form which accepts 3 values, a text field, a select value and a radio value. When submitted, the form maintains the submissions. *Please note that this page is visible only to users with permissions - Administer Config Values defined in Suchi1*
+moviesgroup_actor - does the actor migration
 </li>
 <li>
-/suchi1/show - This page shows the values saved in #1 *This page is visible to all users who can access content*
+moviesgroup_movie - does the movie migration
 </li>
 </ol>
-
-Please check the full module to understand the different files.
