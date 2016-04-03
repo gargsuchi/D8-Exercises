@@ -1,0 +1,7 @@
+name: Migration Exercise
+type: module
+description: 'Migration to migrate from CSV files'
+core: '8.x'
+dependencies:
+  - migrate
+  - migrate_api

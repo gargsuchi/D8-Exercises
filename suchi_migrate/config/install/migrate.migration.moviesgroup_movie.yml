@@ -1,0 +1,23 @@
+# Migration configuration for movie content.
+id: moviesgroup_movie
+label: Movies
+third_party_settings:
+  migrate_plus:
+    migration_group: moviesgroup
+source:
+  plugin: moviesgroup_movie
+destination:
+  plugin: entity:node
+process:
+  # Hardcode the destination node type (bundle) as 'migrate_example_beer'.
+  type:
+    plugin: default_value
+    default_value: movies
+  title: title
+  'body/value': body
+  'body/summary': body
+  field_actors:
+      plugin: migration
+      migration: moviesgroup_actor
+      source: actors
+  field_genre: genres
