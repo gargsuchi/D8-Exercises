@@ -7,16 +7,14 @@
 function suchi_attach_element_info_alter(array &$types) {
   $t = array_keys($types);
 
-//  if (isset($types['table'])) {
+  if (isset($types['table'])) {
     $types['table']['#attached']['library'][] = 'suchi_attach/suchi';
-  dsm($types['table']);
-//  }
+  }
 }
 
 /**
  * Implements hook_node_view_alter().
  */
 function suchi_attach_node_view_alter(&$build) {
- // dsm($build);
   $build['table']['#attached']['library'][] = 'suchi_attach/suchi';
 }
