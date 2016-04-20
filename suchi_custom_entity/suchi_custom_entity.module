@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Contains suchi_custom_entity.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function suchi_custom_entity_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suchi_custom_entity module.
+    case 'help.page.suchi_custom_entity':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module for creation of a custom entity[D[D') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function suchi_custom_entity_theme() {
+  $theme = [];
+  $theme['contact'] = [
+    'render element' => 'elements',
+    'file' => 'contact.page.inc',
+    'template' => 'contact',
+  ];
+  $theme['contact_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'contact.page.inc',
+  ];
+  $theme['contact_add_list'] = [
+    'variables' => ['content' => NULL],
+  ];
+
+  return $theme;
+}
+
+function template_preprocess_contact_add_list(&$variables) {
+  $variables['types'] = array();
+  if (!empty($variables['content'])) {
+    foreach ($variables['content'] as $type) {
+      $variables['types'][$type->id()] = array(
+        'type' => $type->id(),
+        'add_link' => \Drupal::l($type->label(), new Url('contact.add', array('contact_type' => $type->id()))),
+        'description' => array(
+          //'#markup' => $type->getDescription(),
+        ),
+      );
+    }
+  }
+}

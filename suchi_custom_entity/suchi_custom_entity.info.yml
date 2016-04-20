@@ -1,0 +1,5 @@
+name: Suchi Custom Entity
+type: module
+description: Module for creation of a custom entity[D[D
+core: 8.x
+package: Custom

@@ -1,0 +1,27 @@
+contact.multiple_delete_confirm:
+  path: '/admin/content/contact/delete'
+  defaults:
+    _form: '\Drupal\suchi_custom_entity\Form\DeleteMultiple'
+  requirements:
+    _permission: 'administer contacts'
+
+contact.add_page:
+  path: '/contact/add'
+  defaults:
+    _title: 'Add content'
+    _controller: '\Drupal\suchi_custom_entity\Controller\ContactController::addPage'
+  requirements:
+    _permission: 'administer contacts'
+
+contact.add:
+  path: '/contact/add/{contact_type}'
+  defaults:
+    _controller: '\Drupal\suchi_custom_entity\Controller\ContactController::add'
+    _title_callback: '\Drupal\suchi_custom_entity\Controller\ContactController::addPageTitle'
+  options:
+    _contact_operation_route: TRUE
+    parameters:
+      contact_type:
+        type: contact_type
+  requirements:
+    _permission: 'administer contacts'

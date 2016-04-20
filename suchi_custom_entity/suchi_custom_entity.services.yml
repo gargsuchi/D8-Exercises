@@ -1,0 +1,10 @@
+services:
+  node.node_route_context:
+    class: Drupal\suchi_custom_entity\ContextProvider\ContactTypeRouteContext
+    arguments: ['@current_route_match']
+    tags:
+      - { name: 'context_provider' }
+  contact_type:
+    class: Drupal\suchi_custom_entity\ParamConverter\ContactTypeConverter
+    tags:
+      - { name: paramconverter }
