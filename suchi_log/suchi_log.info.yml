@@ -1,0 +1,5 @@
+name: suchi_log
+type: module
+description: Module for Logging exercise
+core: 8.x
+package: Custom

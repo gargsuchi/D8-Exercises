@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * The logger module.
+ */
+use Drupal\dblog\Logger;
+
+/**
+ * Implements hook_entity_update().
+ */
+function suchi_log_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  $type = $entity->getEntityTypeId();
+  if ($type == "node") {
+    $node = $entity->original;
+    \Drupal::logger('suchi_log')
+      ->error('Node with title %node_title of type %node_type has been updated.',
+        array('%node_title' => $node->getTitle(), '%node_type' => $node->getType()));
+  }
+}
