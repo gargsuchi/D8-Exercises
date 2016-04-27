@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Contains suchi_field_formatter.module..
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function suchi_field_formatter_theme($existing, $type, $theme, $path) {
+  return array(
+    'rating_formatter' => array(
+      'variables' => array('rating' => NULL, 'percent' => NULL),
+      'template' => 'rating-formatter',
+    ),
+  );
+}
+
+function template_preprocess_rating_formatter(&$vars) {
+  $vars['percent'] = round($vars['rating'] / 5 * 100);
+}
+
+/**
+ * Implements hook_node_view_alter().
+ */
+function suchi_field_formatter_node_view_alter(&$build) {
+  $build['number']['#attached']['library'][] = 'suchi_field_formatter/star';
+}
