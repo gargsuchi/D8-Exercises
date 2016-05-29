@@ -8,3 +8,11 @@ services:
     class: Drupal\suchi_custom_entity\ParamConverter\ContactTypeConverter
     tags:
       - { name: paramconverter }
+  cors.allow_access_origin:
+      class: Drupal\suchi_custom_entity\EventSubscriber\AccessOriginSubscriber
+      tags:
+        - {name: event_subscriber}
+  page.log_simple:
+        class: Drupal\suchi_custom_entity\EventSubscriber\SimpleLogger
+        tags:
+          - {name: event_subscriber}
