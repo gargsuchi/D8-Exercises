@@ -1,0 +1,19 @@
+Your template goes here..
+
+{%  if var1 %}
+<br>
+    <span class="{{ classes|clean_class }}">{{ var1 }}</span>
+    <br>
+{% endif %}
+{%  if var2 %}
+    {{ var2.3.g }}
+<br>
+{% endif %}
+
+<span class="{{ classes_array|safe_join(' ') }}">{{ "Hello"|t }}</span>
+
+<span class="{% for i in 0..myclasscount %}minion{{ i }} {% endfor %}">{{ "Hello2"|t }}</span>
+<br>
+This is the dump trial
+{{ dump(classes_array) }}
+{{ dump(var1) }}
